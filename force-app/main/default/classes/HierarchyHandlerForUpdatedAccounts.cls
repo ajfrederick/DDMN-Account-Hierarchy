@@ -108,6 +108,15 @@ public without sharing class HierarchyHandlerForUpdatedAccounts {
 
             childAccount.Prospect_Type__c = null; // clear the prospect type since this once was a 'Prospect' account.
 
+            /**
+             * If the prospect was purely a vision client it will have a vision client number and not a client number.
+             * BUT we are only displaying the client number field on ETS-Client child records so let's transfer the 
+             * vision client number to the client number field.
+             */
+            if( childAccount.Client_Number__c == null && childAccount.Vision_Client_Number__c != null ){
+                childAccount.Client_Number__c = childAccount.Vision_Client_Number__c;
+            }
+            
             childAccountIds.add( childAccount.Id );
         }
 
