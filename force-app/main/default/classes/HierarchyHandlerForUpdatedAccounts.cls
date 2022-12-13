@@ -86,7 +86,6 @@ public without sharing class HierarchyHandlerForUpdatedAccounts {
 	 * @description This updates the accounts that were updated by DDMI and turns them into ETS-Client Child records and
      * also updates the parentId to the newly created and now inserted parent Accounts
      * This method is called in AccountHierarchyHandler.cls and after it has inserted the Parent Accounts.
-	 * @param Account childAccount
 	 * @return void
 	 */
     public void updateChildAccounts(){
